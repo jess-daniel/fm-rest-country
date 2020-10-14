@@ -1,9 +1,12 @@
 import React from "react";
 
-const Country = ({ country }) => {
+const Country = ({ country, darkMode }) => {
   return (
-    <div className="w-2/12 mx-8 my-10 border-solid border-2 p-5 rounded shadow bg-gray-100">
-      <div className="relative bg-red-600 pb-8/12">
+    <div
+      className="w-2/12 mx-8 my-10 p-5 rounded shadow bg-gray-100"
+      id={darkMode ? "dark-primary" : null}
+    >
+      <div className="relative pb-8/12">
         <img
           className="absolute h-full w-full object-cover"
           src={country.flag}

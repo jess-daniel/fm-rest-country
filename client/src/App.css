@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+#dark-primary {
+  background-color: #2b3447;
+  color: whitesmoke;
+}
+
+#dark-secondary {
+  background-color: #282c34;
+}

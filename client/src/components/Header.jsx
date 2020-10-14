@@ -1,11 +1,21 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({ darkMode, setDarkMode }) => {
+  const toggleDarkMode = (e) => {
+    e.preventDefault();
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div className="flex justify-between px-2 h-20 shadow-lg items-center">
+    <div
+      className="flex justify-between px-10 h-20 shadow-lg items-center"
+      id={darkMode ? "dark-primary" : null}
+    >
       <p>Where in the world?</p>
 
-      <p>Dark Mode</p>
+      <p style={{ cursor: "pointer" }} onClick={toggleDarkMode}>
+        Dark Mode
+      </p>
     </div>
   );
 };
