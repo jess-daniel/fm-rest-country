@@ -1,8 +1,23 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
+import { useQueryCache } from "react-query";
 import themeContext from "../contexts/themeContext";
 
-const Search = ({ changeHandler, searchTerm }) => {
+const Search = () => {
   const { theme } = useContext(themeContext);
+  const queryCache = useQueryCache();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const changeHandler = (e) => {
+    setSearchTerm(e.target.value);
+
+    queryCache.setQueryData("data", (data) => {
+      return {
+        data: data.data.filter((obj) =>
+          obj.name.toLowerCase().startsWith(searchTerm.toLocaleLowerCase())
+        ),
+      };
+    });
+  };
 
   return (
     <div className="flex" id={theme ? "dark-search" : null}>
