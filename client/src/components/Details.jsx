@@ -30,10 +30,10 @@ const Details = ({ details }) => {
               alt={`flag of ${details.name}`}
             />
           </div>
-          <div className="flex leading-8">
+          <div className="flex leading-8 text-left">
             <div className="flex flex-col px-5">
               <div>
-                <h1>{details.name}</h1>
+                <h1 className=" text-xl font-bold">{details.name}</h1>
               </div>
               <p>Native Name: {details.nativeName}</p>
               <p>Population: {popInt}</p>
@@ -42,6 +42,7 @@ const Details = ({ details }) => {
               <p>Capital: {details.capital}</p>
             </div>
             <div className="flex flex-col">
+              <br />
               <p>Top Level Domain: {details.topLevelDomain}</p>
               <p>Currencies: {details.currencies.map((obj) => obj.name)}</p>
 
@@ -55,8 +56,6 @@ const Details = ({ details }) => {
                   )
                 )}
               </p>
-
-              <p>Subregion: {details.subregion}</p>
             </div>
           </div>
         </div>

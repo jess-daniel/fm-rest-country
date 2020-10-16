@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import {Route, Switch} from "react-router-dom"; 
+import { ReactQueryDevtools } from 'react-query-devtools'
 import Home from './pages/Home';
 import Header from './components/Header';
 import CountryDetails from './pages/CountryDetails';
@@ -27,6 +28,7 @@ function App() {
         </Route>
       </Switch>
       </themeContext.Provider>
+      <ReactQueryDevtools initialIsOpen />
     </div>
   );
 }

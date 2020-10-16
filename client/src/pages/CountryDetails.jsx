@@ -11,8 +11,6 @@ const CountryDetails = () => {
     fetchCountryDetails
   );
 
-  console.log("data", data);
-
   if (isError) {
     return <p className="text-red-600">Data Error</p>;
   }

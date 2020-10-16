@@ -46,3 +46,12 @@
   background-color: #282c34;
   color: whitesmoke;
 }
+
+#dark-search {
+  background-color: #282c34;
+}
+
+#dark-input {
+  background-color: #2b3447;
+  color: whitesmoke;
+}
