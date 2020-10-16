@@ -20,6 +20,12 @@ const Search = () => {
     });
   };
 
+  const refresh = () => {
+    setRegion("default");
+    setSearchTerm("");
+    queryCache.refetchQueries("data");
+  };
+
   const optionChangeHandler = (e) => {
     setRegion(e.target.value);
   };
@@ -58,7 +64,7 @@ const Search = () => {
         <button
           className="px-5"
           id={theme ? "dark-secondary" : null}
-          onClick={() => queryCache.refetchQueries("data")}
+          onClick={refresh}
         >
           Refresh
         </button>
