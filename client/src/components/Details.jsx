@@ -7,6 +7,7 @@ const Details = ({ details }) => {
   const history = useHistory();
   const popInt = new Intl.NumberFormat().format(details.population);
   const langLen = details.languages.length;
+  const currencyLen = details.currencies.length;
 
   return (
     <>
@@ -43,7 +44,16 @@ const Details = ({ details }) => {
             <div className="flex flex-col">
               <br />
               <p>Top Level Domain: {details.topLevelDomain}</p>
-              <p>Currencies: {details.currencies.map((obj) => obj.name)}</p>
+              <p>
+                Currencies:{" "}
+                {details.currencies.map((obj, i) =>
+                  i === currencyLen - 1 ? (
+                    <span>{obj.name}</span>
+                  ) : (
+                    <span>{obj.name}, </span>
+                  )
+                )}
+              </p>
 
               <p>
                 Languages:{" "}
