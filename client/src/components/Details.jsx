@@ -6,7 +6,6 @@ const Details = ({ details }) => {
   const { theme } = useContext(themeContext);
   const history = useHistory();
   const popInt = new Intl.NumberFormat().format(details.population);
-
   const langLen = details.languages.length;
 
   return (
