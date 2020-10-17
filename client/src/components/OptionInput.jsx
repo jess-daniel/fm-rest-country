@@ -21,6 +21,7 @@ const OptionInput = () => {
           .data.filter((obj) => obj.region === region),
       });
     }
+    // FIXME: going to all regions breaks search by name input
     if (region === "All") {
       queryCache.refetchQueries("data");
       setFilteredData({});

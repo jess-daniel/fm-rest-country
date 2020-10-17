@@ -5,7 +5,7 @@ import searchContext from "../contexts/searchContext";
 
 const SearchInput = () => {
   const { theme } = useContext(themeContext);
-  const { filteredData, setFilteredData } = useContext(searchContext);
+  const { setFilteredData } = useContext(searchContext);
   const [searchTerm, setSearchTerm] = useState("");
   const queryCache = useQueryCache();
 
@@ -17,9 +17,11 @@ const SearchInput = () => {
     setFilteredData(queryCache.getQueryData());
     if (searchTerm) {
       setFilteredData({
-        data: filteredData.data.filter((obj) =>
-          obj.name.toLowerCase().startsWith(searchTerm.toLocaleLowerCase())
-        ),
+        data: queryCache
+          .getQueryData()
+          .data.filter((obj) =>
+            obj.name.toLowerCase().startsWith(searchTerm.toLocaleLowerCase())
+          ),
       });
     }
   }, [searchTerm, queryCache]);
