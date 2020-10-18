@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import fetchCountryDetails from "../utils/fetchCountryDetails";
 import Details from "../components/Details";
+import CountryEvents from "../components/CountryEvents";
 
 const CountryDetails = () => {
   const { country } = useParams();
@@ -19,7 +20,13 @@ const CountryDetails = () => {
     <>
       {data &&
         data.data.map((country) => (
-          <Details key={country.alpha3Code} details={country} />
+          <>
+            <Details key={country.alpha3Code} details={country} />
+            <CountryEvents
+              key={country.alpha2Code}
+              countryCode={country.alpha2Code}
+            />
+          </>
         ))}
     </>
   );

@@ -9,10 +9,12 @@ const Details = ({ details }) => {
   const langLen = details.languages.length;
   const currencyLen = details.currencies.length;
 
+  // NOTE: implement event data from ticketmaster api for the country
+
   return (
     <>
       <div
-        className="flex flex-col h-screen items-center"
+        className="flex flex-col items-center"
         id={theme ? "dark-secondary" : null}
       >
         <button
@@ -48,9 +50,9 @@ const Details = ({ details }) => {
                 Currencies:{" "}
                 {details.currencies.map((obj, i) =>
                   i === currencyLen - 1 ? (
-                    <span>{obj.name}</span>
+                    <span key={obj.name}>{obj.name}</span>
                   ) : (
-                    <span>{obj.name}, </span>
+                    <span key={obj.name}>{obj.name}, </span>
                   )
                 )}
               </p>
@@ -59,9 +61,9 @@ const Details = ({ details }) => {
                 Languages:{" "}
                 {details.languages.map((obj, i) =>
                   i === langLen - 1 ? (
-                    <span>{obj.name}</span>
+                    <span key={obj.name}>{obj.name}</span>
                   ) : (
-                    <span>{obj.name}, </span>
+                    <span key={obj.name}>{obj.name}, </span>
                   )
                 )}
               </p>

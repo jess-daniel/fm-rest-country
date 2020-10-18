@@ -5,7 +5,7 @@ import searchContext from "../contexts/searchContext";
 
 const OptionInput = () => {
   const { theme } = useContext(themeContext);
-  const { filteredData, setFilteredData } = useContext(searchContext);
+  const { setFilteredData } = useContext(searchContext);
   const [region, setRegion] = useState("default");
   const queryCache = useQueryCache();
 
