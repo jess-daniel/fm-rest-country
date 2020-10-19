@@ -7,6 +7,7 @@ import Header from './components/Header';
 import CountryDetails from './pages/CountryDetails';
 import themeContext from "./contexts/themeContext";
 import searchContext from './contexts/searchContext';
+import Event from './pages/Event';
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -25,6 +26,9 @@ function App() {
         <Route path="/details/:country">
             <CountryDetails />
         </Route>  
+        <Route path="/event/:id">
+          <Event />
+        </Route>
         <Route path="/">
         <searchContext.Provider value={{ filteredData, setFilteredData }}>
           <Home />

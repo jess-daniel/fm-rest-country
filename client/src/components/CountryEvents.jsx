@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { usePaginatedQuery } from "react-query";
 import fetchEventsByCountry from "../utils/fetchEventsByCountry";
+import EventDetails from "../components/EventDetails";
 
 const CountryEvents = ({ countryCode }) => {
   const [page, setPage] = useState(0);
@@ -13,11 +14,19 @@ const CountryEvents = ({ countryCode }) => {
     return <p>Loading event data...</p>;
   }
 
+  console.log("data", resolvedData._embedded.events);
+
   return (
     <section>
-      <h4>Events</h4>
-      <div>
-        <p>Soon to be data</p>
+      <h2 className="p-8 font-bold">Events</h2>
+      <div className="flex flex-wrap justify-center">
+        {resolvedData._embedded ? (
+          resolvedData._embedded.events.map((event) => (
+            <EventDetails key={event.id} event={event} />
+          ))
+        ) : (
+          <p>No events</p>
+        )}
       </div>
     </section>
   );
