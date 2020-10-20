@@ -14,8 +14,6 @@ const CountryEvents = ({ countryCode }) => {
     return <p>Loading event data...</p>;
   }
 
-  console.log("data", resolvedData._embedded.events);
-
   return (
     <section>
       <h2 className="p-8 font-bold">Events</h2>
