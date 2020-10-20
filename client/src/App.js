@@ -23,12 +23,12 @@ function App() {
       <themeContext.Provider value={{ theme, toggleTheme }}>
       <Header />
       <Switch>  
+        <Route path="/details/:country/:id">
+          <Event />
+        </Route>
         <Route path="/details/:country">
             <CountryDetails />
         </Route>  
-        <Route path="/event/:id">
-          <Event />
-        </Route>
         <Route path="/">
         <searchContext.Provider value={{ filteredData, setFilteredData }}>
           <Home />
