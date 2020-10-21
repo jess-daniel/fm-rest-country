@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
+import themeContext from "../contexts/themeContext";
 
 const EventDetails = ({ event }) => {
+  const { theme } = useContext(themeContext);
   const { country } = useParams();
   return (
-    <div className="flex flex-col justify-between w-1/4 h-26 mx-5 mb-12 bg-gray-100 rounded shadow h-48">
+    <div
+      className="flex flex-col justify-between w-1/4 h-26 mx-5 mb-12 bg-gray-100 rounded shadow h-48"
+      id={theme ? "dark-primary" : null}
+    >
       <Link
         className="flex justify-center"
         to={`/details/${country}/${event.id}`}

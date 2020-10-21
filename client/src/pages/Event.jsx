@@ -16,7 +16,7 @@ const Event = () => {
   console.log("event details", data);
 
   return (
-    <section>
+    <section className="h-screen" id={theme ? "dark-secondary" : null}>
       <button
         className="m-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 shadow-lg self-start"
         id={theme ? "dark-primary" : null}
