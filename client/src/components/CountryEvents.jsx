@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { usePaginatedQuery } from "react-query";
 import fetchEventsByCountry from "../utils/fetchEventsByCountry";
 import EventDetails from "../components/EventDetails";
+import themeContext from "../contexts/themeContext";
 
 const CountryEvents = ({ countryCode }) => {
+  const { theme } = useContext(themeContext);
   const [page, setPage] = useState(0);
   const { resolvedData, latestData, isLoading } = usePaginatedQuery(
     ["events", page, countryCode],
@@ -15,7 +17,7 @@ const CountryEvents = ({ countryCode }) => {
   }
 
   return (
-    <section>
+    <section id={theme ? "dark-secondary" : null}>
       <h2 className="p-8 font-bold">Events</h2>
       <div className="flex flex-wrap justify-center">
         {resolvedData._embedded ? (
