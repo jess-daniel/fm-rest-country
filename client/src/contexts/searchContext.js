@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const searchContext = createContext();
+const searchContext = createContext({});
 
 export default searchContext;

@@ -1,15 +1,20 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import themeContext from "../contexts/themeContext";
+import searchContext from "../contexts/searchContext";
 
 const Details = ({ details }) => {
   const { theme } = useContext(themeContext);
+  const { setFilteredData } = useContext(searchContext);
   const history = useHistory();
   const popInt = new Intl.NumberFormat().format(details.population);
   const langLen = details.languages.length;
   const currencyLen = details.currencies.length;
 
-  // NOTE: implement event data from ticketmaster api for the country
+  const goHome = (e) => {
+    setFilteredData({});
+    history.push("/");
+  };
 
   return (
     <>
@@ -20,7 +25,7 @@ const Details = ({ details }) => {
         <button
           className="m-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 shadow-lg self-start"
           id={theme ? "dark-primary" : null}
-          onClick={() => history.push("/")}
+          onClick={goHome}
         >
           Go Back
         </button>

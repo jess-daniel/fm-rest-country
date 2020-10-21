@@ -7,7 +7,7 @@ const EventDetails = ({ event }) => {
   const { country } = useParams();
   return (
     <div
-      className="flex flex-col justify-between w-1/4 h-26 mx-5 mb-12 bg-gray-100 rounded shadow h-48"
+      className="flex flex-col justify-between w-1/4 mx-5 mb-12 bg-gray-100 rounded shadow h-48"
       id={theme ? "dark-primary" : null}
     >
       <Link
