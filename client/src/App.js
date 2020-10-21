@@ -26,14 +26,14 @@ function App() {
         <Route path="/details/:country/:id">
           <Event />
         </Route>
+        <searchContext.Provider value={{ filteredData, setFilteredData }}>
         <Route path="/details/:country">
             <CountryDetails />
         </Route>  
         <Route path="/">
-        <searchContext.Provider value={{ filteredData, setFilteredData }}>
           <Home />
-        </searchContext.Provider>
         </Route>
+        </searchContext.Provider>
       </Switch>
       </themeContext.Provider>
       <ReactQueryDevtools initialIsOpen />
