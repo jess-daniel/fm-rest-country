@@ -22,6 +22,7 @@ function App() {
     <div className="App">
       <themeContext.Provider value={{ theme, toggleTheme }}>
       <Header />
+        <searchContext.Provider value={{ filteredData, setFilteredData }}>
       <Switch>  
         <Route path="/details/:country/:id">
           <Event />
@@ -30,11 +31,10 @@ function App() {
             <CountryDetails />
         </Route>  
         <Route path="/">
-        <searchContext.Provider value={{ filteredData, setFilteredData }}>
           <Home />
-        </searchContext.Provider>
         </Route>
       </Switch>
+        </searchContext.Provider>
       </themeContext.Provider>
       <ReactQueryDevtools initialIsOpen />
     </div>
